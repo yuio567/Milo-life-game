@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff4f8">
+<title>ชีวิตนี้ฉันเลือกเอง — ไมโล</title>
+<style>
+:root{--ink:#473849;--muted:#8b7b8a;--pink:#e995b8;--pink2:#f8dce8;--lav:#e9e3fb;--cream:#fffaf5;--green:#78aa91;--line:#f0e3eb;--shadow:0 10px 30px #7d527012}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(145deg,#fff7fa,#f8f5ff 58%,#fffaf3);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,sans-serif;color:var(--ink);line-height:1.55}
+button{font:inherit;cursor:pointer} .app{max-width:1060px;margin:0 auto;padding:16px 14px 30px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.brand{font-weight:900;letter-spacing:.2px;font-size:18px}.brand span{color:#d77da5}.smallbtn{border:1px solid var(--line);background:#ffffffd9;border-radius:12px;padding:9px 12px;color:var(--ink);font-weight:700}
+.hero{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(115deg,#f8dfe9,#f0eaff 70%,#fff1de);padding:20px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:center;margin-bottom:14px}
+.avatar{width:94px;height:94px;flex-shrink:0;border-radius:24px;background:#fff9;display:grid;place-items:center;font-size:52px;box-shadow:inset 0 0 0 1px #fff}.hero h1{font-size:24px;margin:0 0 2px}.hero p{margin:0;color:#756477;font-size:13px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.chip{background:#ffffffb8;border:1px solid #fff;border-radius:99px;padding:4px 9px;font-size:12px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px;box-shadow:var(--shadow);min-width:0}.stat .label{font-size:12px;color:var(--muted);margin-bottom:4px}.stat .num{font-size:clamp(16px,2.5vw,22px);font-weight:900;overflow-wrap:anywhere}.stat .sub{font-size:11px;color:var(--muted);margin-top:3px}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,1fr);gap:14px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:21px;padding:17px;box-shadow:var(--shadow);margin-bottom:14px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#c16e96;font-weight:900}.panel h2{margin:4px 0 8px;font-size:21px}.story{color:#645568;font-size:14px}.story p{margin:8px 0}.quote{border-left:3px solid var(--pink);padding:9px 12px;background:#fff7fb;border-radius:0 12px 12px 0;margin:12px 0;color:#72546a;font-style:italic}
+.choices{display:grid;gap:9px;margin-top:14px}.choice{display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;background:#fff;border:1px solid #eadde7;border-radius:15px;padding:12px;color:var(--ink);transition:.15s}.choice:hover{border-color:#df9bbb;background:#fff8fb;transform:translateY(-1px)}.choice.selected{border-color:#d979a5;background:#fff0f6;box-shadow:0 0 0 2px #f6d5e4}.numdot{display:grid;place-items:center;width:29px;height:29px;border-radius:10px;flex-shrink:0;background:#f9e5ee;color:#b65f89;font-weight:900}.choice b{display:block;font-size:14px;margin-bottom:2px}.choice small{display:block;font-size:12px;color:var(--muted);line-height:1.45}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.primary{border:0;border-radius:14px;background:linear-gradient(100deg,#d978a5,#aa91dc);color:#fff;font-weight:900;padding:12px 16px;box-shadow:0 6px 16px #d978a533}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-weight:800;padding:11px 14px}
+.result{display:none;margin-top:14px;padding:13px;border-radius:15px;background:#f5fbf7;border:1px solid #dcefe3}.result.show{display:block}.result h3{margin:0 0 5px;font-size:16px}.result p{font-size:13px;margin:4px 0}.delta{font-weight:800;color:#50866b}
+.meters{display:grid;gap:12px}.meterhead{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px}.track{height:8px;border-radius:99px;background:#f2edf2;overflow:hidden}.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#e995b8,#b8a5eb);transition:width .25s}
+.tabs{display:flex;gap:6px;margin-bottom:12px}.tab{flex:1;padding:9px 6px;border:1px solid var(--line);background:#fff;border-radius:12px;font-size:12px;font-weight:800;color:var(--muted)}.tab.active{background:#fceaf2;border-color:#efc5d8;color:#a8537d}
+.tabcontent{display:none}.tabcontent.active{display:block}.list{margin:0;padding-left:18px;color:#6e5e70;font-size:13px}.list li{margin:7px 0}.familyitem{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #f3eaf0;font-size:13px}.familyitem:last-child{border-bottom:0}.badge{border-radius:99px;background:#edf7f0;color:#4d8c6b;padding:3px 8px;font-size:11px;font-weight:900;white-space:nowrap}
+.log{display:grid;gap:9px}.logitem{border-left:2px solid #e9b1ca;padding:3px 0 4px 10px;font-size:12px;color:#756679}.logitem b{display:block;color:#514157;font-size:13px}
+.notice{font-size:11px;color:#958597;text-align:center;padding:8px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:16px}.avatar{width:75px;height:75px;font-size:42px;border-radius:20px}.hero h1{font-size:21px}.panel{padding:14px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">🌷 <span>ชีวิตนี้ฉันเลือกเอง</span></div>
+    <button class="smallbtn" id="resetBtn">เริ่มชีวิตใหม่ ↻</button>
+  </header>
+  <section class="hero">
+    <div class="avatar" id="avatar">👶🏻</div>
+    <div>
+      <h1 id="heroName">ไมโล ธนกรกุล</h1>
+      <p id="heroAge">อายุ 2 เดือน · ธันวาคม 2026</p>
+      <div class="chips"><span class="chip">🧠 นิสัย: ฉลาด</span><span class="chip">🏡 ครอบครัวร่ำรวย</span><span class="chip" id="phaseChip">วัยทารก</span></div>
+    </div>
+  </section>
+  <section class="stats">
+    <div class="stat"><div class="label">💰 ทรัพย์สินครอบครัว</div><div class="num" id="wealth">119,997,000 ฿</div><div class="sub">เงินและทรัพย์สินจำลอง</div></div>
+    <div class="stat"><div class="label">🎓 กองทุนไมโล</div><div class="num" id="fund">500,000 ฿</div><div class="sub">แยกจากทรัพย์สินครอบครัว</div></div>
+    <div class="stat"><div class="label">🩺 สุขภาพ</div><div class="num" id="healthNum">96/100</div><div class="sub">ค่าจำลองในเกม</div></div>
+    <div class="stat"><div class="label">💗 ความสุข</div><div class="num" id="happyNum">89/100</div><div class="sub">เปลี่ยนตามเหตุการณ์</div></div>
+  </section>
+  <div class="layout">
+    <main>
+      <section class="panel">
+        <div class="eyebrow" id="chapter">บทที่ 8 · เหตุการณ์ครอบครัว</div>
+        <h2 id="eventTitle">ข่าวจากบริษัทของพ่อ</h2>
+        <div class="story" id="story"></div>
+        <div class="choices" id="choices"></div>
+        <div class="actions">
+          <button class="primary" id="confirmBtn" disabled>เลือกตัวเลือกนี้ ✨</button>
+          <button class="secondary" id="nextBtn" style="display:none">เหตุการณ์ถัดไป →</button>
+        </div>
+        <div class="result" id="result">
+          <h3 id="resultTitle">บันทึกการตัดสินใจแล้ว</h3>
+          <p id="resultText"></p>
+          <p class="delta" id="resultDelta"></p>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="eyebrow">📖 บันทึกชีวิต</div>
+        <h2>เรื่องราวที่ผ่านมา</h2>
+        <div class="log" id="log"></div>
+      </section>
+    </main>
+    <aside>
+      <section class="panel">
+        <div class="tabs">
+          <button class="tab active" data-tab="status">สถานะ</button>
+          <button class="tab" data-tab="family">ครอบครัว</button>
+          <button class="tab" data-tab="history">เส้นทางชีวิต</button>
+        </div>
+        <div class="tabcontent active" id="tab-status">
+          <div class="meters" id="meters"></div>
+          <div class="familyitem"><span>🧸 ค่าใช้จ่ายดูแล/เดือน</span><b id="careCost">85,000 ฿</b></div>
+          <div class="familyitem"><span>🎲 เหตุการณ์ที่ตัดสินใจแล้ว</span><b id="decisionCount">0</b></div>
+          <div class="familyitem"><span>📅 เดือนในเกม</span><b id="monthCount">ธ.ค. 2026</b></div>
+        </div>
+        <div class="tabcontent" id="tab-family">
+          <div class="familyitem"><span>👨 พ่อ · ธนกร</span><b id="dadRel">79/100</b></div>
+          <div class="familyitem"><span>👩 แม่ · ลลิตา</span><b id="momRel">88/100</b></div>
+          <div class="familyitem"><span>🧑‍🍼 พี่เลี้ยง</span><b id="nannyRel">78/100</b></div>
+          <div class="familyitem"><span>👵 คุณย่า</span><b id="grandmaRel">74/100</b></div>
+          <p class="story">ความสัมพันธ์จะเปลี่ยนตามการตัดสินใจและเหตุการณ์ที่เกิดขึ้น</p>
+        </div>
+        <div class="tabcontent" id="tab-history">
+          <ul class="list">
+            <li>เกิดในครอบครัวเจ้าของธุรกิจ</li><li>เลือกแนวทางเลี้ยงดูแบบทายาทธุรกิจ</li><li>จ้างผู้เชี่ยวชาญด้านพัฒนาการ</li><li>เลือกเลี้ยงดูตามสัญญาณของทารก</li><li>ตั้งขอบเขตกับคุณย่าอย่างสุภาพ</li><li>ทดลองคลาสพัฒนาการระยะสั้น</li><li>ปรับคลาสให้สั้นลงและพักมากขึ้น</li>
+          </ul>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="eyebrow">💡 วิธีเล่น</div>
+        <ul class="list">
+          <li>แตะตัวเลือก แล้วกด “เลือกตัวเลือกนี้”</li>
+          <li>อ่านผลลัพธ์ แล้วกด “เหตุการณ์ถัดไป” เพื่อเล่นต่อทันที</li>
+          <li>อายุจะเพิ่มเมื่อผ่านเหตุการณ์ครบตามช่วงเวลา ไม่ใช่ทุกครั้งที่กด</li>
+          <li>สถานะจะบันทึกในเบราว์เซอร์เครื่องนี้อัตโนมัติ</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+  <div class="notice">เกมจำลองเพื่อความบันเทิง · กด “เริ่มชีวิตใหม่” หากต้องการรีเซ็ตข้อมูล</div>
+</div>
+<script>
+const initialState = {
+ name:"ไมโล ธนกรกุล", ageMonths:2, year:2026, month:12, wealth:119997000, fund:500000, careCost:85000,
+ health:96,happiness:89,development:89,dad:79,mom:88,nanny:78,grandma:74,
+ eventIndex:0, decisions:0, pending:null, hasResult:false, log:[
+  {title:"เลือกการเลี้ยงดู",text:"ครอบครัวเตรียมไมโลเป็นทายาทธุรกิจ แต่คงความสำคัญของความสุขและความปลอดภัย"},
+  {title:"ผู้เชี่ยวชาญด้านพัฒนาการ",text:"จ้างทีมผู้เชี่ยวชาญ ค่าใช้จ่ายดูแลประจำเดือน 85,000 บาท"},
+  {title:"ยืดหยุ่นตามสัญญาณของทารก",text:"ครอบครัวปรับกิจวัตรให้เหมาะกับความหิว ง่วง และการปลอบโยน"},
+  {title:"ตั้งขอบเขตกับคุณย่า",text:"ตกลงไม่เปรียบเทียบหลาน และสร้างบรรยากาศที่รับฟังกัน"},
+  {title:"ทดลองคลาสพัฒนาการ",text:"จ่ายค่าทดลอง 3,000 บาท และปรับกิจกรรมให้สั้นลงเมื่อไมโลต้องการพัก"}
+ ]
+};
+let state;
+const events = [
+ {title:"ข่าวจากบริษัทของพ่อ",chapter:"บทที่ 8 · เหตุการณ์ครอบครัว",story:[
+  "ผู้จัดการรายงานว่าโครงการอสังหาริมทรัพย์มีต้นทุนเพิ่มขึ้นจากราคาวัสดุ พ่อจำเป็นต้องเลือกว่าจะจัดระบบงานใหม่หรือทุ่มเวลาแก้ปัญหาเอง",
+  "ขณะเดียวกัน แม่ได้รับข้อเสนอให้ขยายแบรนด์ความงามไปต่างจังหวัด การตัดสินใจครั้งนี้อาจส่งผลต่อเวลาในครอบครัวและทรัพย์สินในระยะยาว"
+ ],choices:[
+  {title:"พ่อจัดระบบบริษัทใหม่",desc:"มอบหมายงานให้ทีมมากขึ้นและพยายามกลับบ้านตรงเวลา",effects:{wealth:-50000,dad:2,mom:2,happiness:1},result:"พ่อจ้างที่ปรึกษาจัดระบบงานและกระจายความรับผิดชอบ มีค่าใช้จ่ายเริ่มต้น แต่ตารางงานเริ่มยืดหยุ่นขึ้น.",delta:"ทรัพย์สินครอบครัว −50,000 บาท"},
+  {title:"พ่อทุ่มเวลาแก้โครงการก่อน",desc:"แก้ปัญหาธุรกิจอย่างใกล้ชิด อาจมีเวลาให้ครอบครัวน้อยลงชั่วคราว",effects:{wealth:0,dad:-3,mom:-1,happiness:-2},result:"พ่อใช้เวลาตรวจสอบโครงการด้วยตัวเองและควบคุมต้นทุนได้ดีขึ้น แต่กลับบ้านช้าหลายวัน.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"แม่เดินหน้าขยายแบรนด์",desc:"ใช้โอกาสทางธุรกิจ โดยต้องจัดระบบดูแลไมโลให้ลงตัว",effects:{wealth:-300000,mom:2,dad:-1},result:"แม่เริ่มศึกษาตลาดและวางงบเปิดตลาดนำร่อง ใช้เงินลงทุนจากทรัพย์สินครอบครัว.",delta:"ทรัพย์สินครอบครัว −300,000 บาท"},
+  {title:"ชะลอการลงทุนใหม่",desc:"รอต้นทุนโครงการชัดเจนก่อน ลดความเสี่ยงในช่วงนี้",effects:{wealth:0,dad:1,mom:1,happiness:1},result:"พ่อแม่ตกลงพักการลงทุนใหม่ชั่วคราวและให้ทีมตรวจสอบงบประมาณก่อนตัดสินใจ.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"จ้างผู้จัดการเพิ่ม",desc:"เพิ่มค่าใช้จ่ายเพื่อแบ่งเบาภาระบริหารของพ่อ",effects:{wealth:-120000,dad:3,mom:2,happiness:2},result:"บริษัทจ้างผู้จัดการโครงการเพิ่ม ทำให้พ่อแบ่งเวลาให้ครอบครัวได้มากขึ้น.",delta:"ทรัพย์สินครอบครัว −120,000 บาท"},
+  {title:"ประชุมวางแผนครอบครัว",desc:"พ่อแม่ประเมินเวลา เงิน และเป้าหมายร่วมกันก่อนตัดสินใจ",effects:{wealth:0,dad:2,mom:2,happiness:2},result:"พ่อแม่จัดประชุมส่วนตัว แบ่งเวลางานและเวลาครอบครัวชัดเจน พร้อมรอข้อมูลต้นทุนเพิ่มเติม.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"}
+ ]},
+ {title:"คืนที่ไมโลนอนไม่เป็นเวลา",chapter:"บทที่ 9 · ชีวิตประจำวัน",story:["คืนนี้ไมโลตื่นบ่อยกว่าปกติ พี่เลี้ยงสังเกตว่าเธออาจต้องการการปลอบโยนหรือมีความไม่สบายตัวเล็กน้อย","ครอบครัวต้องตัดสินใจว่าจะช่วยกันดูแลอย่างไร โดยให้ความสำคัญกับความปลอดภัยและสัญญาณของทารก"],choices:[
+  {title:"แม่อยู่ปลอบไมโล",desc:"แม่ดูแลใกล้ชิดและให้พ่อช่วยงานบ้านในช่วงนั้น",effects:{mom:2,dad:1,happiness:1},result:"แม่ปลอบไมโลอย่างอ่อนโยนและสังเกตความต้องการ ส่วนพ่อช่วยจัดการงานบ้าน ทำให้ทั้งคู่รู้สึกเป็นทีมเดียวกัน.",delta:"ไม่มีค่าใช้จ่ายเพิ่มเติม"},
+  {title:"ผลัดเวรกันดูแล",desc:"พ่อแม่กับพี่เลี้ยงแบ่งช่วงดูแลอย่างเหมาะสม",effects:{dad:2,mom:2,nanny:1,happiness:1},result:"ทุกคนแบ่งหน้าที่กันชัดเจน และให้ไมโลได้รับการตอบสนองเมื่อร้องหรือแสดงความต้องการ.",delta:"ไม่มีค่าใช้จ่ายเพิ่มเติม"},
+  {title:"ปรึกษากุมารแพทย์",desc:"สอบถามผู้เชี่ยวชาญหากมีอาการผิดปกติหรือกังวล",effects:{wealth:-1500,health:1,mom:1},result:"ครอบครัวโทรขอคำแนะนำจากคลินิกและได้รับคำแนะนำให้สังเกตอาการ พร้อมพาไปตรวจหากมีสัญญาณน่ากังวล.",delta:"ค่าปรึกษา 1,500 บาท หักจากทรัพย์สินครอบครัว"},
+  {title:"ให้พี่เลี้ยงช่วยมากขึ้น",desc:"ขอความช่วยเหลือเพิ่มโดยไม่ละเลยการมีส่วนร่วมของพ่อแม่",effects:{nanny:2,mom:1,dad:1},result:"พี่เลี้ยงช่วยดูแลช่วงที่พ่อแม่พัก แต่พ่อแม่ยังเข้ามาปลอบและพูดคุยกับไมโลด้วย.",delta:"อยู่ในค่าใช้จ่ายดูแลประจำเดือนเดิม"},
+  {title:"สังเกตและปรับสภาพแวดล้อม",desc:"ตรวจอุณหภูมิ เสื้อผ้า ผ้าอ้อม และสิ่งรบกวนอย่างปลอดภัย",effects:{health:1,happiness:1,mom:1},result:"ครอบครัวตรวจสิ่งแวดล้อมพื้นฐานและลดสิ่งรบกวน โดยไม่ฝืนให้ไมโลทำกิจกรรมใด ๆ.",delta:"ไม่มีค่าใช้จ่ายเพิ่มเติม"}
+ ]},
+ {title:"คุณย่าอยากซื้อของให้หลาน",chapter:"บทที่ 10 · ครอบครัว",story:["คุณย่าเห็นชุดของเล่นราคาแพงสำหรับเด็กเล็กและอยากซื้อให้ไมโลทันที แม่กังวลว่าของเล่นบางชิ้นอาจไม่เหมาะกับวัยหรือมีชิ้นส่วนเล็ก","ทุกคนจึงต้องหาวิธีรับน้ำใจของคุณย่า โดยยังคำนึงถึงความปลอดภัยและการใช้เงินอย่างมีเหตุผล"],choices:[
+  {title:"ตรวจสอบความเหมาะสมก่อน",desc:"ให้ผู้ดูแลตรวจอายุที่แนะนำและความปลอดภัย",effects:{grandma:1,mom:2},result:"คุณย่ายอมให้ตรวจสอบก่อนซื้อ และครอบครัวเลือกเฉพาะของเล่นที่เหมาะกับวัย.",delta:"คุณย่าเป็นผู้ซื้อเอง ไม่มีการเปลี่ยนแปลงยอดเงินครอบครัว"},
+  {title:"แนะนำหนังสือภาพแทน",desc:"เลือกของที่เรียบง่ายและเหมาะกับการดูแลทารก",effects:{grandma:2,mom:1,development:1},result:"คุณย่าตกลงซื้อหนังสือภาพที่เหมาะกับทารก และอ่านให้ไมโลฟังอย่างอ่อนโยน.",delta:"คุณย่าเป็นผู้ซื้อเอง ไม่มีการเปลี่ยนแปลงยอดเงินครอบครัว"},
+  {title:"ขอให้งดซื้อก่อน",desc:"ครอบครัวมีของใช้จำเป็นครบแล้ว",effects:{grandma:-1,mom:1},result:"แม่อธิบายว่าตอนนี้ของใช้เพียงพอแล้ว คุณย่าเข้าใจบ้างแต่ยังเสียดายที่ไม่ได้ซื้อของให้หลาน.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"จัดรายการของจำเป็นร่วมกัน",desc:"ให้คุณย่ามีส่วนร่วมโดยเลือกของที่ครอบครัวต้องใช้จริง",effects:{grandma:2,mom:2},result:"ครอบครัวช่วยกันทำรายการของที่เหมาะสม คุณย่ารู้สึกมีส่วนร่วมและแม่สบายใจขึ้น.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"รับของขวัญแต่เก็บให้เหมาะสม",desc:"รับน้ำใจและเก็บสิ่งที่ยังไม่เหมาะกับวัยไว้ก่อน",effects:{grandma:1,happiness:1},result:"คุณย่ามอบของขวัญด้วยความรัก ครอบครัวเก็บของที่ยังไม่เหมาะกับวัยไว้ใช้เมื่อถึงเวลา.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"}
+ ]},
+ {title:"นัดตรวจสุขภาพตามวัย",chapter:"บทที่ 11 · สุขภาพและพัฒนาการ",story:["ถึงเวลาวางแผนตรวจสุขภาพตามนัด ครอบครัวมีหลายตัวเลือกเรื่องวันเดินทางและการจัดตาราง","การตรวจและวัคซีนควรเป็นไปตามคำแนะนำของกุมารแพทย์และแนวทางที่ใช้ในพื้นที่ ไม่ควรตัดสินใจเลื่อนเองหากไม่แน่ใจ"],choices:[
+  {title:"นัดตามกำหนดกับกุมารแพทย์",desc:"เตรียมสมุดสุขภาพและถามข้อสงสัยให้ครบ",effects:{wealth:-2500,health:1,mom:1},result:"ครอบครัวไปตามนัดและพูดคุยกับกุมารแพทย์เรื่องการเจริญเติบโตและการดูแลตามวัย.",delta:"ค่าตรวจจำลอง 2,500 บาท"},
+  {title:"ขอคำแนะนำเรื่องการเดินทางก่อน",desc:"วางแผนเวลาและการเดินทางให้เหมาะกับทารก",effects:{mom:1,dad:1},result:"พ่อแม่โทรสอบถามคลินิกและเตรียมการเดินทางให้ไมโลได้พักตามต้องการ.",delta:"ไม่มีค่าใช้จ่ายเพิ่มเติม"},
+  {title:"ให้พ่อพาไปตรวจ",desc:"พ่อรับผิดชอบนัดหมายและใช้เวลากับลูก",effects:{dad:2,mom:1,wealth:-2500},result:"พ่อจัดตารางงานและพาไมโลไปตรวจตามนัด ทำให้เขาได้เรียนรู้การดูแลลูกมากขึ้น.",delta:"ค่าตรวจจำลอง 2,500 บาท"},
+  {title:"แม่พาไปพร้อมจดคำถาม",desc:"แม่เตรียมคำถามเรื่องการนอนและพัฒนาการ",effects:{mom:2,wealth:-2500},result:"แม่จดคำถามและพูดคุยกับแพทย์อย่างเป็นระบบ ได้แนวทางดูแลตามวัยกลับมา.",delta:"ค่าตรวจจำลอง 2,500 บาท"}
+ ]},
+ {title:"พ่อได้รับคำชวนลงทุน",chapter:"บทที่ 12 · เงินและอนาคต",story:["เพื่อนทางธุรกิจชวนพ่อร่วมลงทุนในโครงการใหม่ โดยบอกว่าอาจให้ผลตอบแทนดี แต่รายละเอียดความเสี่ยงยังไม่ครบ","พ่อคิดถึงอนาคตของไมโลและครอบครัว จึงต้องเลือกระหว่างโอกาสกับความรอบคอบ"],choices:[
+  {title:"ตรวจสอบข้อมูลก่อน",desc:"ให้ผู้เชี่ยวชาญการเงินและกฎหมายตรวจเอกสาร",effects:{wealth:-10000,dad:1,mom:1},result:"พ่อจ่ายค่าตรวจสอบเอกสารและยังไม่ลงทุนจนกว่าจะเข้าใจความเสี่ยงทั้งหมด.",delta:"ค่าตรวจสอบ 10,000 บาท"},
+  {title:"ปฏิเสธในตอนนี้",desc:"รักษาเงินสำรองไว้สำหรับครอบครัวและธุรกิจเดิม",effects:{dad:1,mom:1,happiness:1},result:"พ่อปฏิเสธอย่างสุภาพและเก็บเงินสำรองไว้ ความเสี่ยงจากโครงการนี้จึงไม่กระทบครอบครัว.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"ขอรายละเอียดเพิ่มเติม",desc:"ยังไม่ตอบตกลงจนกว่าจะมีข้อมูลชัดเจน",effects:{dad:1},result:"พ่อขอเอกสารและแผนการเงินเพิ่มเติมก่อนตัดสินใจ.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"},
+  {title:"ประชุมกับแม่ก่อน",desc:"ตัดสินใจเรื่องใหญ่ร่วมกันในฐานะครอบครัว",effects:{dad:2,mom:2},result:"พ่อกับแม่ทบทวนเป้าหมายและเงินสำรองร่วมกัน แล้วตกลงว่าจะไม่รีบตัดสินใจ.",delta:"ไม่มีการเปลี่ยนแปลงยอดเงิน"}
+ ]}
+];
+function load(){try{const saved=localStorage.getItem("miloLifeSaveV1");state=saved?{...structuredClone(initialState),...JSON.parse(saved)}:structuredClone(initialState)}catch(e){state=structuredClone(initialState)}}
+function save(){try{localStorage.setItem("miloLifeSaveV1",JSON.stringify(state))}catch(e){}}
+function money(n){return Math.round(n).toLocaleString("en-US")+" ฿"}
+function ageText(){if(state.ageMonths<12)return `อายุ ${state.ageMonths} เดือน`;let y=Math.floor(state.ageMonths/12),m=state.ageMonths%12;return `อายุ ${y} ปี${m?` ${m} เดือน`:""}`}
+function monthText(){return ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."][state.month-1]+" "+state.year}
+function phase(){if(state.ageMonths<12)return "วัยทารก";if(state.ageMonths<36)return "วัยเตาะแตะ";if(state.ageMonths<72)return "วัยก่อนเรียน";if(state.ageMonths<144)return "วัยประถม";if(state.ageMonths<216)return "วัยรุ่น";return "วัยผู้ใหญ่"}
+function clamp(v){return Math.max(0,Math.min(100,v))}
+function currentEvent(){return events[state.eventIndex%events.length]}
+function render(){
+ document.getElementById("heroName").textContent=state.name;document.getElementById("heroAge").textContent=ageText()+" · "+monthText();document.getElementById("phaseChip").textContent=phase();
+ document.getElementById("avatar").textContent=state.ageMonths<12?"👶🏻":state.ageMonths<36?"🧒🏻":state.ageMonths<72?"👧🏻":state.ageMonths<216?"👩🏻":"👩🏻";
+ document.getElementById("wealth").textContent=money(state.wealth);document.getElementById("fund").textContent=money(state.fund);
+ document.getElementById("healthNum").textContent=state.health+"/100";document.getElementById("happyNum").textContent=state.happiness+"/100";
+ document.getElementById("dadRel").textContent=state.dad+"/100";document.getElementById("momRel").textContent=state.mom+"/100";document.getElementById("nannyRel").textContent=state.nanny+"/100";document.getElementById("grandmaRel").textContent=state.grandma+"/100";
+ document.getElementById("careCost").textContent=money(state.careCost);document.getElementById("decisionCount").textContent=state.decisions;document.getElementById("monthCount").textContent=monthText();
+ const stats=[["สุขภาพ",state.health],["ความสุข",state.happiness],["พัฒนาการตามวัย",state.development],["ความผูกพันกับพ่อ",state.dad],["ความผูกพันกับแม่",state.mom],["ความผูกพันกับพี่เลี้ยง",state.nanny],["ความสัมพันธ์กับคุณย่า",state.grandma]];
+ document.getElementById("meters").innerHTML=stats.map(([n,v])=>`<div><div class="meterhead"><span>${n}</span><b>${v}/100</b></div><div class="track"><div class="fill" style="width:${v}%"></div></div></div>`).join("");
+ document.getElementById("log").innerHTML=state.log.slice().reverse().slice(0,7).map(x=>`<div class="logitem"><b>${escapeHTML(x.title)}</b>${escapeHTML(x.text)}</div>`).join("");
+ if(!state.hasResult){renderEvent();}else{document.getElementById("confirmBtn").style.display="none";document.getElementById("nextBtn").style.display="inline-block";document.getElementById("resultTitle").textContent="✨ "+(state.pending?.choice||"บันทึกการตัดสินใจแล้ว");document.getElementById("resultText").textContent=state.pending?.result||"";document.getElementById("resultDelta").textContent=state.pending?.delta||"";document.getElementById("result").classList.add("show");}
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+let selected=-1;
+function renderEvent(){
+ const ev=currentEvent();document.getElementById("chapter").textContent=ev.chapter;document.getElementById("eventTitle").textContent=ev.title;
+ document.getElementById("story").innerHTML=ev.story.map(p=>`<p>${p}</p>`).join("");
+ document.getElementById("choices").innerHTML=ev.choices.map((c,i)=>`<button class="choice ${selected===i?"selected":""}" data-i="${i}"><span class="numdot">${i+1}</span><span><b>${c.title}</b><small>${c.desc}</small></span></button>`).join("");
+ document.querySelectorAll(".choice").forEach(b=>b.addEventListener("click",()=>{selected=Number(b.dataset.i);document.querySelectorAll(".choice").forEach(x=>x.classList.toggle("selected",Number(x.dataset.i)===selected));document.getElementById("confirmBtn").disabled=false}));
+ document.getElementById("confirmBtn").style.display="inline-block";document.getElementById("confirmBtn").disabled=selected<0;document.getElementById("nextBtn").style.display="none";document.getElementById("result").classList.remove("show");
+}
+function applyEffects(effects){
+ const labels={wealth:"ทรัพย์สินครอบครัว",fund:"กองทุนไมโล",health:"สุขภาพ",happiness:"ความสุข",development:"พัฒนาการตามวัย",dad:"ความผูกพันกับพ่อ",mom:"ความผูกพันกับแม่",nanny:"ความผูกพันกับพี่เลี้ยง",grandma:"ความสัมพันธ์กับคุณย่า"};
+ let deltas=[];
+ for(const [k,v] of Object.entries(effects||{})){if(k in state){state[k]=k==="wealth"||k==="fund"?Math.max(0,state[k]+v):clamp(state[k]+v);if(v!==0)deltas.push(`${labels[k]||k} ${v>0?"+":""}${k==="wealth"||k==="fund"?money(v):v}`)}}
+ return deltas;
+}
+document.getElementById("confirmBtn").addEventListener("click",()=>{
+ if(selected<0||state.hasResult)return;const ev=currentEvent(),choice=ev.choices[selected];const deltas=applyEffects(choice.effects);
+ state.decisions++;state.hasResult=true;state.pending={event:ev.title,choice:choice.title,result:choice.result,delta:(deltas.length?deltas.join(" · "):choice.delta)};
+ state.log.push({title:choice.title,text:choice.result});
+ document.getElementById("resultTitle").textContent="✨ "+choice.title;
+ document.getElementById("resultText").textContent=choice.result;
+ document.getElementById("resultDelta").textContent=deltas.length?deltas.join(" · "):choice.delta;
+ if(choice.delta && !deltas.some(x=>x.startsWith("ทรัพย์สินครอบครัว")))document.getElementById("resultDelta").textContent=choice.delta+(deltas.length?" · "+deltas.join(" · "):"");
+ document.getElementById("result").classList.add("show");document.getElementById("confirmBtn").style.display="none";document.getElementById("nextBtn").style.display="inline-block";
+ save();render();
+});
+document.getElementById("nextBtn").addEventListener("click",()=>{
+ if(!state.hasResult)return;
+ state.eventIndex++;state.hasResult=false;state.pending=null;selected=-1;
+ // Three completed events advance the calendar by one month; baby age stays gradual.
+ if(state.decisions>0 && state.decisions%3===0){state.ageMonths++;state.month++;if(state.month>12){state.month=1;state.year++}
+   state.log.push({title:"เวลาผ่านไปหนึ่งเดือน",text:`ไมโลเติบโตเป็น ${ageText()} ครอบครัวติดตามพัฒนาการตามวัยและปรับกิจวัตรให้เหมาะสม`});
+   if(state.ageMonths>=12){state.log.push({title:"เริ่มช่วงวัยใหม่",text:"ครอบครัวจะค่อย ๆ ปรับกิจกรรมและความเป็นอิสระให้เหมาะกับวัยที่เปลี่ยนไป"})}
+ }
+ save();render();
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("เริ่มชีวิตไมโลใหม่ตั้งแต่สถานะปัจจุบันหรือไม่? การบันทึกนี้จะถูกรีเซ็ต")){state=structuredClone(initialState);selected=-1;save();render()}});
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".tabcontent").forEach(x=>x.classList.remove("active"));document.getElementById("tab-"+b.dataset.tab).classList.add("active")}));
+load();render();
+</script>
+</body>
+</html>
